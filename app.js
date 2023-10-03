@@ -1,6 +1,6 @@
 // app.js
 document.addEventListener("DOMContentLoaded", function () {
-    fetchData('https://raw.githubusercontent.com/erickcampos50/Painel-de-dados-compartilhados-IFES/master/exemplo.csv')
+    fetchData('https://docs.google.com/spreadsheets/d/e/2PACX-1vTQd660HE5HrVc8h7-3zvL9TbYEt7nwN5DEHDjOyUHaH3fDSEHQoFvSFlYsIVs-5AuU4aHIaqcNJWuI/pub?gid=0&single=true&output=csv')
         .then(data => {
             createMenu(data);
         })
@@ -101,3 +101,11 @@ function toggleDisplay(element) {
         element.style.display = 'none';
     }
 }
+
+
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();  // Previne a submissão padrão do formulário
+    let query = document.getElementById('searchInput').value;
+    let siteSearch = "site:https://erickcampos50.github.io/Painel-de-dados-compartilhados-IFES/ " + query; 
+    window.open("https://www.google.com/search?q=" + encodeURIComponent(siteSearch), "_blank");
+});
