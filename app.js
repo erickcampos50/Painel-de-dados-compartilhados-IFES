@@ -1,3 +1,29 @@
+// app.js
+document.addEventListener("DOMContentLoaded", function () {
+    fetchData('https://raw.githubusercontent.com/erickcampos50/Painel-de-dados-compartilhados-IFES/master/exemplo.csv')
+        .then(data => {
+            createMenu(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+
+function fetchData(url) {
+    return new Promise((resolve, reject) => {
+        Papa.parse(url, {
+            download: true,
+            header: true,
+            complete: function (data) {
+                resolve(data.data);
+            },
+            error: function (err) {
+                reject(err);
+            }
+        });
+    });
+}
+
 function createMenu(data) {
     const appDiv = document.getElementById('app');
 
@@ -27,6 +53,10 @@ function createMenu(data) {
         typeDivContainer.className = 'sub-menu';
         categoryDiv.appendChild(typeDivContainer);
 
+        categoryDiv.addEventListener('click', function() {
+            toggleDisplay(typeDivContainer);
+        });
+
         Object.keys(types).forEach(type => {
             let typeDiv = document.createElement('div');
             typeDiv.className = 'sub-menu-item';
@@ -37,42 +67,37 @@ function createMenu(data) {
             descDivContainer.className = 'sub-sub-menu';
             typeDiv.appendChild(descDivContainer);
 
+            typeDiv.addEventListener('click', function(event) {
+                event.stopPropagation();
+                toggleDisplay(descDivContainer);
+            });
+
             types[type].forEach(item => {
                 let descDiv = document.createElement('div');
                 descDiv.className = 'sub-sub-menu-item';
-                
+                    
+                // Descrição
+                let description = document.createElement('span');
+                description.textContent = item.Descrição + " ";
+                descDiv.appendChild(description);
+                    
+                // Link
                 let link = document.createElement('a');
                 link.href = item.Link;
-                link.textContent = item.Descrição;
+                link.textContent = "Link";
                 link.target = "_blank";
                 descDiv.appendChild(link);
-
+        
                 descDivContainer.appendChild(descDiv);
             });
         });
     });
 }
 
-function fetchData(url) {
-    return new Promise((resolve, reject) => {
-        Papa.parse(url, {
-            download: true,
-            header: true,
-            complete: function (data) {
-                resolve(data.data);
-            },
-            error: function (err) {
-                reject(err);
-            }
-        });
-    });
+function toggleDisplay(element) {
+    if (element.style.display === 'none' || element.style.display === '') {
+        element.style.display = 'block';
+    } else {
+        element.style.display = 'none';
+    }
 }
-
-
-fetchData('exemplo.csv')
-    .then(data => {
-        createMenu(data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });

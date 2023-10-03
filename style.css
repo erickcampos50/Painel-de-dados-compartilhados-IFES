@@ -62,13 +62,48 @@ tr:hover {
 }
 
 .menu-item {
-    font-size: 1.5rem;
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .sub-menu-item {
-    font-size: 1.25rem;
+    margin-top: 0.3em;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: bold;
 }
 
+
 .sub-sub-menu-item {
-    font-size: 1rem;
+    display: flex;  /* Adicionado para assegurar que os itens estejam lado a lado */
+    align-items: center;
+    gap: 8px;  /* Espaço entre a descrição e o link */
+    list-style-type: disc;  
+    margin-left: 20px;  /* Indentação para a numeração */
+    font-weight: normal;  /* Sem negrito */
+    font-size: 0.8em;  /* Fonte menor */
+}
+
+.sub-menu, .sub-sub-menu {
+    display: none;
+    margin-left: 20px;
+}
+
+a {
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Aplicando estilos adicionais para a descrição e o link */
+.sub-sub-menu-item span {
+    display: list-item;
+}
+
+.sub-sub-menu-item a {
+    margin-left: 10px;
 }
