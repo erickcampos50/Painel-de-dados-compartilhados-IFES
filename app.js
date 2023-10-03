@@ -1,6 +1,7 @@
 // app.js
 document.addEventListener("DOMContentLoaded", function () {
-    fetchData('https://docs.google.com/spreadsheets/d/e/2PACX-1vTQd660HE5HrVc8h7-3zvL9TbYEt7nwN5DEHDjOyUHaH3fDSEHQoFvSFlYsIVs-5AuU4aHIaqcNJWuI/pub?gid=0&single=true&output=csv')
+    fetchData('https://docs.google.com/spreadsheets/d/e/2PACX-1vTQd660HE5HrVc8h7-3zvL9TbYEt7nwN5DEHDjOyUHaH3fDSEHQoFvSFlYsIVs-5AuU4aHIaqcNJWuI/pub?gid=0&single=true&output=csv') 
+    // fetchData('https://raw.githubusercontent.com/erickcampos50/Painel-de-dados-compartilhados-IFES/master/exemplo.csv') //Apenas para testes em ambiente local
         .then(data => {
             createMenu(data);
         })

@@ -6,20 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>IFES Compartilhamento</title>
+    <title>Compartilhamento de informações entre as IFES</title>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="mt-5 mb-4">Painel de Compartilhamento IFES</h1>
+        <h1 class="mt-5 mb-4">Painel de compartilhamento de informações entre IFES</h1>
         <p class="mb-4">
-            Este painel é destinado ao compartilhamento de informações entre as Instituições Federais de Ensino Superior (IFES) do Brasil sobre licitações e boas práticas.
+            Este painel é destinado ao compartilhamento de informações entre as Instituições Federais de Ensino Superior (IFES) do Brasil sobre licitações e boas práticas. 
         </p>
+        
         <form id="searchForm" class="mb-4" action="https://www.google.com/search" method="get" target="_blank">
             <input type="text" name="q" id="searchInput" class="form-control" placeholder="Busque termos no nosso site">
             <input type="submit" value="Buscar" id="searchSubmit" class="btn btn-primary mt-2">
         </form>
+
+        <hr> <!-- Separador horizontal -->
+
         <div id="app"></div>
+        <hr> <!-- Separador horizontal -->
+
+     
+        <!-- Seção de Submissão -->
+        <section id="submit" class="mt-5">
+            <h4>Colabore com o Painel</h4>
+            Se você deseja submeter novas informações e colaborar com nosso repositório, sinta-se à vontade para contribuir.
+            <a href="https://www.google.com/intl/pt-BR/forms/about/" class="btn btn-primary" target="_blank">Submeter Informações</a> </p>
+        </section>
+
+
+
+           <!-- Seção de Créditos -->
+           <section id="credits" class="mt-5">
+            <p><h4>Créditos</h4>
+            Este painel foi desenvolvido e é mantido por Erick Campos <a href="mailto:erick.campos@ufjf.br">e-mail</a></p>
+        </section>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
